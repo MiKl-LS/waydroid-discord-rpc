@@ -23,7 +23,11 @@ default_icon_key: waydroid
 # How often (in hours) to refresh the app-name cache from `waydroid app list`
 app_list_cache_ttl_hours: 24
 
+# Seconds between foreground checks (both daemons)
+poll_interval_seconds: 10
+
 # Paths (defaults shown below — you only need to change these if you want
 # custom locations)
 paths:
   foreground_file: /tmp/waydroid-rpc/foreground.json
+

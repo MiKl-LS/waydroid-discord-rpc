@@ -1,8 +1,8 @@
-# waydroid-discord-rpc
+# discord-waydroid-rpc
 
 ![example rich presence](demo.png)
 
-a dirty (vibe coded) implementation because I thought "wouldn't it be cool if waydroid had rich presence status just like bluestacks?". and turns out there were zero implementations online. (someone should actually make a proper implementation of this)
+a dirty (vibe coded) implementation because I thought "wouldn't it be cool if waydroid had rich presence status just like bluestacks?", and turns out there were zero implementations online. (someone should actually make a proper implementation of this)
 
 I have reviewed the code and after a few rounds of testing it seems stable enough. If you do run this, you should practice proper opsec and read the scripts to ensure it's safe
 
@@ -20,16 +20,13 @@ For this to work you need both python-yaml and pypresence installed globally. To
 Clone this repository first (or just download as a zip, whatever works):
 
 ```
-git clone https://github.com/MiKl-LS/waydroid-discord-rpc
-cd waydroid-discord-rpc
+git clone https://github.com/MiKl-LS/discord-waydroid-rpc
+cd discord-waydroid-rpc
 ```
 
 To install the script run: 
 
-```
-chmod +x ./install.sh
-sudo ./install.sh
-```
+```sudo ./install.sh```
 
 then edit the config file with your favorite editor
 
@@ -45,6 +42,8 @@ To obtain this, do the following (blatantly copied from config.yaml)
    3. Copy its Client ID from the General Information page
 
 Additonally, you can upload one art asset for the rich presence icon (the default key is "waydroid") although it is not required 
+
+Note: Default poll interval is 10 seconds (it runs every 10 seconds). Edit `poll_interval_seconds` if you want it faster/slower
 
 Then enable the two systemd services using systemctl:
 (two are needed because `waydroid shell` needs root and pypresence only works for the current user)
@@ -63,11 +62,6 @@ systemctl --user status waydroid-rpc-user.service
 
 When you open a waydroid application, it should set your rpc accordingly.
 
-You can also run `waydroid-rpc.py --current` to get the currently detected application
-
 To uninstall this script, run:
 
-```
-chmod +x ./uninstall.sh
-sudo ./uninstall.sh
-```
+```sudo ./uninstall.sh```
